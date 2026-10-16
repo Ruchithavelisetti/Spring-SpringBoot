@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+  
+           <context:property-placeholder
+                location="classpath:application.properties"/>
+			
+	<bean class ="com.spring.Student" id ="st">
+	
+			<property name = "studentId" value ="1"></property>
+			<property name = "name" value ="Ruchitha"></property>
+ 			<property name = "marks" value ="99"></property>
+ 	</bean>
+ 	
+ 	
+ 	<bean class ="com.spring.Student" id ="st2">
+ 	
+			<constructor-arg index="2" value  ="92"></constructor-arg>
+			<constructor-arg index = "1" value=" Kusuma"></constructor-arg>
+			<constructor-arg index = "0" value  ="2"></constructor-arg>
+	
+ 	</bean>
+ 	
+ 	<bean class ="com.spring.Student" id ="st3">	
+ 	
+		 	<constructor-arg value  ="3"></constructor-arg>
+		 	<constructor-arg  value  ="Prasad"></constructor-arg>
+		 	<property name ="marks" value ="97"></property>	
+ 	</bean>
+ 	
+ 	<bean class = "com.spring.Employee" id = "emp">
+ 		
+ 		<property name = "empId" value = "101"></property>
+ 		<property name = "name" value = "Ruchitha"></property>
+ 		<property name ="salary" value = "40000"></property>
+ 		<property name = "skills">
+ 				<list>
+		 					<value>Java</value>
+		 					<value>SQL</value>
+		 					<value>JDBC</value>
+		 					<value>Hibernate</value>
+		 					<value>Spring</value>
+ 				</list>
+ 		</property>
+ 		
+ 		 <property name = "education">
+ 		
+ 			         <map>
+			 			<entry key ="ssc" value="98"></entry>
+			 			<entry key ="Inter" value= "93"></entry>
+			 			<entry key ="B.tech"  value = "75"></entry>
+ 			        </map>
+    	</property>
+ 		
+ 	</bean>
+ 		 	
+ 		 	
+ 		 	<bean class ="com.spring.User" id = "user" autowire="byName">
+	 		 		<property name = "userId" value = "123"></property> 		 	
+	 		 		<property name = "name" value ="Ruchitha"></property>
+ 		 	</bean>	
+ 		 	
+ 		 	<bean class = "com.spring.User" id ="user1" autowire ="constructor">
+	 		 	<constructor-arg value ="123"></constructor-arg>
+	 		 	<constructor-arg value = "Ruchi"></constructor-arg>
+	 		 	<constructor-arg ref = "address"></constructor-arg>
+	 		 	<constructor-arg ref = "department"></constructor-arg>		 	
+ 		 	</bean>
+ 		
+ 		<bean class = "com.spring.Address" id ="address">		
+	 		<property name = "street" value = "Gutenadeevi"></property>
+	 		<property name= "pincode" value = "1234565"></property>
+	 		<property name ="country" value = "India"></property>
+ 		</bean>
+ 		
+ 		<bean class = "com.spring.Address" id ="address2">		
+	 		<property name = "street" value = "Yanam"></property>
+	 		<property name= "pincode" value = "1234565"></property>
+	 		<property name ="country" value = "India"></property>
+ 		</bean> 
+ 		
+ 		
+ 		
+ 		<bean class ="com.spring.Department" id ="department">		
+	 		<property name = "deptId" value = " 999"></property>
+	 		<property name ="deptName" value = "ECE"></property>	 				
+ 		</bean>
+ 		
+ 		
+ 		<bean class = "com.spring.Product" id ="product">		
+ 			<property name = "productId" value ="${productId}"></property>
+ 			<property name = "productName" value = "${productName}"></property>
+ 			<property name = "price" value = "${price}"></property>
+ 		</bean>
+ 		
+ 	
+ 		
+ 		
+ 		
+ 	
+ </beans>
